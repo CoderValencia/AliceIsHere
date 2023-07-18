@@ -5,21 +5,34 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
-    private float move;
-
     private Rigidbody2D rb;
-    // Start is called before the first frame update
+    private float hitboxHeight;
+    private float hitboxWidth;
+    public LayerMask ground;
+    public float jumpVelocity;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        hitboxHeight = GetComponent<BoxCollider2D>().bounds.extents.y;
+        hitboxWidth = GetComponent<BoxCollider2D>().bounds.extents.x;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        move = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(speed * Input.GetAxis("Horizontal"), rb.velocity.y);
 
-        rb.velocity = new Vector2(speed * move, rb.velocity.y);
-        
+        if (Input.GetButtonDown("Jump") && GroundCheck())
+        {
+            //very basic jump
+            rb.velocity = new Vector2(rb.velocity.x, jumpVelocity);
+        }
+    }
+
+    bool GroundCheck()
+    {
+        return Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - hitboxHeight), -Vector3.up, 0.02f, ground)
+            || Physics2D.Raycast(new Vector3(transform.position.x - hitboxWidth, transform.position.y - hitboxHeight), -Vector3.up, 0.02f, ground)
+            || Physics2D.Raycast(new Vector3(transform.position.x + hitboxWidth, transform.position.y - hitboxHeight), -Vector3.up, 0.02f, ground);
+        //Make sure every ground object has layer set to ground when making terrain
     }
 }
