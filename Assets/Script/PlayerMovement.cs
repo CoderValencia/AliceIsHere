@@ -5,11 +5,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
-    private Rigidbody2D rb;
-    private float hitboxHeight;
-    private float hitboxWidth;
+    Rigidbody2D rb;
+    float hitboxHeight;
+    float hitboxWidth;
     public LayerMask ground;
     public float jumpVelocity;
+    bool inJump;
+    public float XVel;
+    public float YVel;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,13 +22,42 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        rb.velocity = new Vector2(speed * Input.GetAxis("Horizontal"), rb.velocity.y);
+        XVel = speed * Input.GetAxis("Horizontal");
 
         if (Input.GetButtonDown("Jump") && GroundCheck())
         {
-            //very basic jump
-            rb.velocity = new Vector2(rb.velocity.x, jumpVelocity);
+            YVel = jumpVelocity;
+            inJump = true;
         }
+    }
+
+    void FixedUpdate()
+    {
+        if (inJump)
+        {
+            if(YVel > jumpVelocity / 2)
+            {
+                YVel -= 0.5f;
+            } else
+            {
+                YVel -= 0.3f;
+            }
+
+            inJump = YVel > 0;
+
+            if (!Input.GetButton("Jump"))
+            {
+                inJump = false;
+                YVel = YVel/2.5f;
+            }
+        }
+
+        if (!GroundCheck() && !inJump)
+        {
+            YVel -= 0.25f;
+        }
+
+        rb.velocity = new Vector2(XVel, YVel);
     }
 
     bool GroundCheck()
