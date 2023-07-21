@@ -1143,7 +1143,7 @@ GameObject:
   - component: {fileID: 2109206404}
   - component: {fileID: 2109206409}
   m_Layer: 0
-  m_Name: TestEnemy
+  m_Name: TestPatrolEnemy
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1313,10 +1313,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbe60b0e7416574a8ae7471ea3e5518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPlayer: 1
   moveVertical: 0
   moveHorizontal: 1
   TimeBeforeTurn: 3
-  speed: 5
+  speed: 4
 --- !u!1 &2113547263
 GameObject:
   m_ObjectHideFlags: 0
