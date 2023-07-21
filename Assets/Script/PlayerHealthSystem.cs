@@ -22,6 +22,19 @@ public class PlayerHealthSystem : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        //flicker effect
+        if (GetComponent<SpriteRenderer>().color == Color.clear)
+        {
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        else if (IFrames > 0)
+        {
+            GetComponent<SpriteRenderer>().color = Color.clear;
+        }
+    }
+
     public void Die()
     {
         transform.position = respawnPos;
