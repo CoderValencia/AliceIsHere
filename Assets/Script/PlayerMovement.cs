@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
         a.SetBool("IsJumping", inJump);
         a.SetBool("IsMoving", Mathf.Abs(XVel) > 0.01f);
-
+        transform.position = new Vector3(transform.position.x, transform.position.y, -2);
         rb.velocity = new Vector2(XVel, YVel);
     }
 
