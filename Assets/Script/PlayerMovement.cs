@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,22 +14,45 @@ public class PlayerMovement : MonoBehaviour
     bool inJump;
     public float XVel;
     public float YVel;
+    bool facingLeft;
+    Animator a;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         hitboxHeight = GetComponent<BoxCollider2D>().bounds.extents.y;
         hitboxWidth = GetComponent<BoxCollider2D>().bounds.extents.x;
+        a = GetComponent<Animator>();
     }
 
     void Update()
     {
-        XVel = speed * Input.GetAxis("Horizontal");
+        float moveInput = Input.GetAxis("Horizontal");
+        bool ground = GroundCheck();
+        XVel = speed * moveInput;
+        if(moveInput > 0)
+        {
+            facingLeft = false;
+        } else if (moveInput < 0)
+        {
+            facingLeft = true;
+        }
 
-        if (Input.GetButtonDown("Jump") && GroundCheck())
+        if (facingLeft)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        } else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        if (Input.GetButtonDown("Jump") && ground)
         {
             YVel = jumpVelocity;
             inJump = true;
         }
+        
+        a.SetBool("IsGrounded", ground);
     }
 
     void FixedUpdate()
@@ -57,14 +81,17 @@ public class PlayerMovement : MonoBehaviour
             YVel -= 0.25f;
         }
 
+        a.SetBool("IsJumping", inJump);
+        a.SetBool("IsMoving", Mathf.Abs(XVel) > 0.01f);
+
         rb.velocity = new Vector2(XVel, YVel);
     }
 
     bool GroundCheck()
     {
-        return Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - hitboxHeight), -Vector3.up, 0.02f, ground)
-            || Physics2D.Raycast(new Vector3(transform.position.x - hitboxWidth, transform.position.y - hitboxHeight), -Vector3.up, 0.02f, ground)
-            || Physics2D.Raycast(new Vector3(transform.position.x + hitboxWidth, transform.position.y - hitboxHeight), -Vector3.up, 0.02f, ground);
+        return Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - hitboxHeight + GetComponent<Collider2D>().offset.y), -Vector3.up, 0.02f, ground)
+            || Physics2D.Raycast(new Vector3(transform.position.x - hitboxWidth, transform.position.y - hitboxHeight + GetComponent<Collider2D>().offset.y), -Vector3.up, 0.02f, ground)
+            || Physics2D.Raycast(new Vector3(transform.position.x + hitboxWidth, transform.position.y - hitboxHeight + GetComponent<Collider2D>().offset.y), -Vector3.up, 0.02f, ground);
         //Make sure every ground object has layer set to ground when making terrain
     }
 }
