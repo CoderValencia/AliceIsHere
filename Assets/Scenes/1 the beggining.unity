@@ -1727,11 +1727,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d3e6bf9ad174047b7fa203a26dc562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3.5
   ground:
     serializedVersion: 2
     m_Bits: 8
-  jumpVelocity: 10
+  jumpVelocity: 7
   XVel: 0
   YVel: 0
 --- !u!114 &1623755528
