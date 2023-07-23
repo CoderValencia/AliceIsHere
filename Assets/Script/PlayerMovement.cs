@@ -29,6 +29,12 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveInput = Input.GetAxis("Horizontal");
         bool ground = GroundCheck();
+
+        if (ground && YVel < 0)
+        {
+            YVel = 0;
+        }
+
         XVel = speed * moveInput;
         if(moveInput > 0)
         {
