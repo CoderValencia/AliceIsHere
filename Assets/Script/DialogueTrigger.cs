@@ -23,6 +23,8 @@ public class DialogueTrigger : MonoBehaviour
     {
         dialogueIsPlaying = false;
         playerInSpace = false;
+        dialogueBox.SetActive(false);
+        dialoguePrompt.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             EnterDialogueMode(inkJson);
         }
-        if (Input.GetMouseButtonDown(0) && playerInSpace == true)
+        if ((Input.GetMouseButtonDown(0)|| Input.GetKeyDown(KeyCode.Space)) && playerInSpace == true)
         {
             ContinueStory();
             Debug.Log("Continue Story");
@@ -44,6 +46,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             Debug.Log("Player is in talking space");
             playerInSpace = true;
+            dialoguePrompt.gameObject.SetActive(true);
         }
     }
    
@@ -51,8 +54,9 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("Player is in talking space");
+            Debug.Log("Player is out of talking space");
             playerInSpace = false;
+            dialoguePrompt.gameObject.SetActive(false);
         }
     }
 
