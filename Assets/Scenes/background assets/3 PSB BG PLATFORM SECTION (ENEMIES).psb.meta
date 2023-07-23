@@ -869,7 +869,7 @@ ScriptedImporter:
   - name: DefaultTexturePlatform
     overridden: 0
     ignorePlatformSupport: 0
-    maxTextureSize: 4096
+    maxTextureSize: 16384
     resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 2
@@ -1353,7 +1353,7 @@ ScriptedImporter:
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638257070076768121
+  platformSettingsDirtyTick: 638257275218347065
   spriteSizeExpandChanged: 0
   generateGOHierarchy: 0
   textureAssetName: 
