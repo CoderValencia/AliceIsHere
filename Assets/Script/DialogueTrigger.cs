@@ -4,6 +4,8 @@ using Ink.Runtime;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Rendering;
+using UnityEngine.EventSystems;
+using System.Collections;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -14,9 +16,13 @@ public class DialogueTrigger : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI dialoguePrompt;
     public GameObject dialogueBox;
+    public GameObject dialogueChoices;
 
     const string SPEAKER_TAG = "speaker";
     public TextMeshProUGUI speakerName;
+
+    public GameObject[] choices;
+    private TextMeshProUGUI[] choicesText;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +31,9 @@ public class DialogueTrigger : MonoBehaviour
         playerInSpace = false;
         dialogueBox.SetActive(false);
         dialoguePrompt.gameObject.SetActive(false);
+        dialogueChoices.gameObject.SetActive(false);
+
+        
     }
 
     // Update is called once per frame
@@ -33,20 +42,23 @@ public class DialogueTrigger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && playerInSpace == true)
         {
             EnterDialogueMode(inkJson);
+            DisplayChoices();
         }
-        if ((Input.GetMouseButtonDown(0)|| Input.GetKeyDown(KeyCode.Space)) && playerInSpace == true)
+        if (Input.GetKeyDown(KeyCode.Space) && playerInSpace == true)
         {
             ContinueStory();
             Debug.Log("Continue Story");
         }
+
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("Player is in talking space");
+
             playerInSpace = true;
             dialoguePrompt.gameObject.SetActive(true);
+          ;
         }
     }
    
@@ -54,9 +66,9 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("Player is out of talking space");
             playerInSpace = false;
             dialoguePrompt.gameObject.SetActive(false);
+
         }
     }
 
@@ -66,6 +78,17 @@ public class DialogueTrigger : MonoBehaviour
         dialogueBox.SetActive(true);
         dialogueIsPlaying = true;
 
+        choicesText = new TextMeshProUGUI[choices.Length];
+        int index = 0;
+        foreach (GameObject choice in choices)
+        {
+            choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
+            index++;
+        }
+
+        DisplayChoices();
+
+        
 
         if (currentStory.canContinue)
         {
@@ -91,6 +114,7 @@ public class DialogueTrigger : MonoBehaviour
         if (currentStory.canContinue)
         {
             dialogueText.text = currentStory.Continue();
+            DisplayChoices();
             HandleTags(currentStory.currentTags);
         }
         else
@@ -113,10 +137,60 @@ public class DialogueTrigger : MonoBehaviour
             string tagKey = splitTag[0];
             string tagValue = splitTag[1];
             speakerName.text = tagValue;
-            Debug.Log(tagValue);
+
           
 
         }
 
     }
+
+    private void DisplayChoices()
+    {
+        dialogueChoices.gameObject.SetActive(true);
+        
+        List<Choice> currentChoices = currentStory.currentChoices;
+
+       
+        if (currentChoices.Count > choices.Length)
+        {
+            Debug.LogError("More choices were given than the UI can support. Number of choices given: "
+                + currentChoices.Count);
+        }
+
+        int index = 0;
+        
+        foreach (Choice choice in currentChoices)
+        {
+            choices[index].gameObject.SetActive(true);
+            choicesText[index].text = choice.text;
+            index++;
+        }
+        // go through the remaining choices the UI supports and make sure they're hidden
+        for (int i = index; i < choices.Length; i++)
+        {
+            choices[i].gameObject.SetActive(false);
+        }
+
+        StartCoroutine(SelectFirstChoice());
+
+       
+    }
+
+    private IEnumerator SelectFirstChoice()
+    {
+ 
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
+        EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
+    }
+
+
+    public void MakeChoice(int choiceIndex)
+    {
+        
+            currentStory.ChooseChoiceIndex(choiceIndex);
+            ContinueStory();
+       
+    }
+
 }
