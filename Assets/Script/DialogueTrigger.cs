@@ -27,6 +27,7 @@ public class DialogueTrigger : MonoBehaviour
     public PlayerMovement playerMovement;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,6 +83,7 @@ public class DialogueTrigger : MonoBehaviour
         currentStory = new Story(inkJson.text);
         dialogueBox.SetActive(true);
         dialogueIsPlaying = true;
+        playerMovement.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, playerMovement.gameObject.GetComponent<Rigidbody2D>().velocity.y);
    
 
         choicesText = new TextMeshProUGUI[choices.Length];
