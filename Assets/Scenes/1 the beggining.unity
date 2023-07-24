@@ -222,6 +222,7 @@ MonoBehaviour:
   dialogueChoices: {fileID: 0}
   speakerName: {fileID: 0}
   choices: []
+  playerMovement: {fileID: 0}
 --- !u!1 &167124025 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6165303713264420866, guid: 639b90e7accd0fc459260ffe904c49c5, type: 3}
@@ -1847,6 +1848,7 @@ MonoBehaviour:
   choices:
   - {fileID: 1375304498}
   - {fileID: 1900248217}
+  playerMovement: {fileID: 1623755527}
 --- !u!61 &1497488026
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,1 +1,1 @@
-Walk - WASD/ E - Talk/ Enter - Continue Dialogue 
+Walk - WASD, E - Talk, Space - Continue Dialogue/Jump 

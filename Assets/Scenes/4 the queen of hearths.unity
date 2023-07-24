@@ -222,6 +222,7 @@ MonoBehaviour:
   dialogueChoices: {fileID: 0}
   speakerName: {fileID: 0}
   choices: []
+  playerMovement: {fileID: 0}
 --- !u!1 &33205589
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,6 +965,10 @@ PrefabInstance:
       propertyPath: dialoguePrompt
       value: 
       objectReference: {fileID: 947934732}
+    - target: {fileID: 5655011327847932824, guid: f7e2c0fd25f260145b76972ac1a4cea4, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1623755527}
     - target: {fileID: 5655011327847932824, guid: f7e2c0fd25f260145b76972ac1a4cea4, type: 3}
       propertyPath: dialogueChoices
       value: 

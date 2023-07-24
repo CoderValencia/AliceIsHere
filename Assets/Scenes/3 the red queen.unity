@@ -483,6 +483,7 @@ MonoBehaviour:
   dialogueChoices: {fileID: 0}
   speakerName: {fileID: 0}
   choices: []
+  playerMovement: {fileID: 0}
 --- !u!1001 &39087207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7995,6 +7996,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7560986230462484195}
     - target: {fileID: 5655011327847932824, guid: f7e2c0fd25f260145b76972ac1a4cea4, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1623755527}
+    - target: {fileID: 5655011327847932824, guid: f7e2c0fd25f260145b76972ac1a4cea4, type: 3}
       propertyPath: dialogueChoices
       value: 
       objectReference: {fileID: 1310201629}
@@ -10262,7 +10267,6 @@ MonoBehaviour:
   jumpVelocity: 10
   XVel: 0
   YVel: 0
-  canJump: 0
 --- !u!114 &1623755528
 MonoBehaviour:
   m_ObjectHideFlags: 0

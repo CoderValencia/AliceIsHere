@@ -24,6 +24,8 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
 
+    public PlayerMovement playerMovement;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,13 +42,13 @@ public class DialogueTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && playerInSpace == true)
+        if (Input.GetKeyDown(KeyCode.E) && playerInSpace)
         {
             EnterDialogueMode(inkJson);
 
             DisplayChoices();
         }
-        if (Input.GetKeyDown(KeyCode.Return) && playerInSpace == true)
+        if (Input.GetKeyDown(KeyCode.Space) && playerInSpace && dialogueIsPlaying )
         {
             ContinueStory();
             Debug.Log("Continue Story");
@@ -76,6 +78,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJson)
     {
+        playerMovement.enabled = false;
         currentStory = new Story(inkJson.text);
         dialogueBox.SetActive(true);
         dialogueIsPlaying = true;
@@ -107,6 +110,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void ExitDialogue()
     {
+        playerMovement.enabled = true;
         dialogueIsPlaying = false;
         dialogueBox.SetActive(false);
         dialogueText.text = "";
