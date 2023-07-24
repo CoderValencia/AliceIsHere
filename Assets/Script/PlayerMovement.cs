@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float YVel;
     bool facingLeft;
     Animator a;
+    public bool canJump;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         hitboxHeight = GetComponent<BoxCollider2D>().bounds.extents.y;
         hitboxWidth = GetComponent<BoxCollider2D>().bounds.extents.x;
         a = GetComponent<Animator>();
+        canJump = true;
     }
 
     void Update()
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
 
-        if (Input.GetButtonDown("Jump") && ground)
+        if (Input.GetButtonDown("Jump") && ground )
         {
             YVel = jumpVelocity;
             inJump = true;

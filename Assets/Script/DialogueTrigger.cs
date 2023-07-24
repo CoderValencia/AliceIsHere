@@ -24,6 +24,7 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,9 +43,10 @@ public class DialogueTrigger : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && playerInSpace == true)
         {
             EnterDialogueMode(inkJson);
+
             DisplayChoices();
         }
-        if (Input.GetKeyDown(KeyCode.Space) && playerInSpace == true)
+        if (Input.GetKeyDown(KeyCode.Return) && playerInSpace == true)
         {
             ContinueStory();
             Debug.Log("Continue Story");
@@ -77,6 +79,7 @@ public class DialogueTrigger : MonoBehaviour
         currentStory = new Story(inkJson.text);
         dialogueBox.SetActive(true);
         dialogueIsPlaying = true;
+   
 
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
@@ -97,6 +100,7 @@ public class DialogueTrigger : MonoBehaviour
         }
         else
         {
+
             ExitDialogue();
         }
     }
@@ -110,7 +114,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void ContinueStory()
     {
-        Debug.Log(currentStory.currentText);
+
         if (currentStory.canContinue)
         {
             dialogueText.text = currentStory.Continue();

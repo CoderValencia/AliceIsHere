@@ -219,7 +219,9 @@ MonoBehaviour:
   dialogueText: {fileID: 0}
   dialoguePrompt: {fileID: 0}
   dialogueBox: {fileID: 0}
+  dialogueChoices: {fileID: 0}
   speakerName: {fileID: 0}
+  choices: []
 --- !u!1 &167124025 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6165303713264420866, guid: 639b90e7accd0fc459260ffe904c49c5, type: 3}
@@ -818,6 +820,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &702464979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3016353348328965302, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+  m_PrefabInstance: {fileID: 1406669014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &740628391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,6 +1591,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1375304498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1436654218142658851, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+  m_PrefabInstance: {fileID: 1406669014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1406669014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1676,9 +1688,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3726933471753451209, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726933471753451209, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726933471753451209, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1497488025}
+    - target: {fileID: 3726933471753451209, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726933471753451209, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MakeChoice
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726933471753451209, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DialogueTrigger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726933471753451209, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3726933471753451209, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7616324056811556759, guid: 1d7676c293155784b9523c7a39936352, type: 3}
       propertyPath: m_Name
       value: DialoguePanel (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088529922764405086, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088529922764405086, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1497488025}
+    - target: {fileID: 8088529922764405086, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MakeChoice
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088529922764405086, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DialogueTrigger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088529922764405086, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1769,12 +1833,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInSpace: 0
-  inkJson: {fileID: 4900000, guid: 5927bec548a0de94a80274b8a40f979c, type: 3}
+  inkJson: {fileID: 4900000, guid: 66555391be90de74598083199487c1ca, type: 3}
   dialogueIsPlaying: 0
   dialogueText: {fileID: 1406669017}
   dialoguePrompt: {fileID: 1406669015}
   dialogueBox: {fileID: 1406669018}
+  dialogueChoices: {fileID: 702464979}
   speakerName: {fileID: 1406669016}
+  choices:
+  - {fileID: 1375304498}
+  - {fileID: 1900248217}
 --- !u!61 &1497488026
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2131,6 +2199,7 @@ MonoBehaviour:
   jumpVelocity: 7
   XVel: 0
   YVel: 0
+  canJump: 0
 --- !u!114 &1623755528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2389,6 +2458,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1900248217 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1780506530998240961, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+  m_PrefabInstance: {fileID: 1406669014}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2109206403
 GameObject:
   m_ObjectHideFlags: 0
