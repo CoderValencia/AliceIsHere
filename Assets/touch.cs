@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 
-public class TouchAndDisappear : MonoBehaviour
+public class touch : MonoBehaviour
 {
-    public float flashDuration = 0.2f; // The duration of the object flash in seconds.
-    public float disappearDelay = 1f; // The delay before the object disappears after the flash.
+
+
+    public float flashDuration = 5f; // The duration of the object flash in seconds.
+    public float disappearDelay = 5f; // The delay before the object disappears after the flash.
 
     public GameObject interactingObject; // Assign the interacting object in the Unity editor.
 
@@ -58,5 +59,6 @@ public class TouchAndDisappear : MonoBehaviour
         // Reset the flag so the object can interact with other objects.
         isTouching = false;
     }
-}
 
+
+}
