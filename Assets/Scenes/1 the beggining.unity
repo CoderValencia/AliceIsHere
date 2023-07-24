@@ -1720,6 +1720,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4149518306474835412, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 7616324056811556759, guid: 1d7676c293155784b9523c7a39936352, type: 3}
       propertyPath: m_Name
       value: DialoguePanel (1)
@@ -2031,6 +2035,7 @@ GameObject:
   - component: {fileID: 1623755523}
   - component: {fileID: 1623755525}
   - component: {fileID: 1623755526}
+  - component: {fileID: 1623755530}
   - component: {fileID: 1623755527}
   - component: {fileID: 1623755528}
   - component: {fileID: 1623755529}
@@ -2101,7 +2106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623755522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.87, y: -3.47, z: -2}
+  m_LocalPosition: {x: 4.85, y: -3.66, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2199,7 +2204,6 @@ MonoBehaviour:
   jumpVelocity: 7
   XVel: 0
   YVel: 0
-  canJump: 0
 --- !u!114 &1623755528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2238,6 +2242,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1623755530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623755522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bf864b525ccfa41b0cece63f7da4c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 75
 --- !u!1 &1705498022
 GameObject:
   m_ObjectHideFlags: 0
@@ -3256,7 +3273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2129134703
 MonoBehaviour:
   m_ObjectHideFlags: 0

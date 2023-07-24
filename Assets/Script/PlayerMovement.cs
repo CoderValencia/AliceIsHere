@@ -16,7 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public float YVel;
     bool facingLeft;
     Animator a;
-    public bool canJump;
+    //public bool canJump;
+    
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         hitboxHeight = GetComponent<BoxCollider2D>().bounds.extents.y;
         hitboxWidth = GetComponent<BoxCollider2D>().bounds.extents.x;
         a = GetComponent<Animator>();
-        canJump = true;
+        //canJump = true;
     }
 
     void Update()
