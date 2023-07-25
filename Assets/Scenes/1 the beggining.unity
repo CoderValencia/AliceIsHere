@@ -222,6 +222,8 @@ MonoBehaviour:
   dialogueChoices: {fileID: 0}
   speakerName: {fileID: 0}
   choices: []
+  audioClips: []
+  audioSource: {fileID: 0}
   playerMovement: {fileID: 0}
 --- !u!1 &148107296 stripped
 GameObject:
@@ -1826,6 +1828,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4028504952010268489, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028504952010268489, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 105
+      objectReference: {fileID: 0}
     - target: {fileID: 4092796658951233838, guid: 1d7676c293155784b9523c7a39936352, type: 3}
       propertyPath: m_SizeDelta.x
       value: -20
@@ -1839,8 +1849,28 @@ PrefabInstance:
       value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 4149518306474835412, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149518306474835412, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149518306474835412, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149518306474835412, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 815.7562
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149518306474835412, guid: 1d7676c293155784b9523c7a39936352, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -12.999961
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149518306474835412, guid: 1d7676c293155784b9523c7a39936352, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 150
+      value: 62.9429
       objectReference: {fileID: 0}
     - target: {fileID: 4836652667481017779, guid: 1d7676c293155784b9523c7a39936352, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1966,6 +1996,8 @@ MonoBehaviour:
   choices:
   - {fileID: 1375304498}
   - {fileID: 1900248217}
+  audioClips: []
+  audioSource: {fileID: 0}
   playerMovement: {fileID: 1623755527}
 --- !u!61 &1497488026
 BoxCollider2D:
