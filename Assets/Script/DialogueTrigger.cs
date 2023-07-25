@@ -6,6 +6,7 @@ using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.Rendering;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -19,10 +20,16 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject dialogueChoices;
 
     const string SPEAKER_TAG = "speaker";
+    const string VOICE_TAG = "voice";
+
+
     public TextMeshProUGUI speakerName;
 
     public GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
+
+    public AudioClip[] audioClips;
+    public AudioSource audioSource;
 
     public PlayerMovement playerMovement;
 
@@ -146,10 +153,28 @@ public class DialogueTrigger : MonoBehaviour
             }
             string tagKey = splitTag[0];
             string tagValue = splitTag[1];
-            speakerName.text = tagValue;
 
-          
+            // handle the tag
+            switch (tagKey)
+            {
+                case SPEAKER_TAG:
+                    speakerName.text = tagValue;
+                    break;
+                case VOICE_TAG:
+                    foreach (AudioClip audioClip in audioClips)
+                    {
+                        if (audioClip.name.Trim() == tagValue.Trim())
+                        {
+                            audioSource.PlayOneShot(audioClip, 1);
+                        }
+                    }
+                    break;
+                default:
+                    Debug.LogWarning("Tag came in but is not currently being handled: " + tag);
+                    break;
 
+
+            }
         }
 
     }

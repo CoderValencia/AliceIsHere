@@ -1,10 +1,10 @@
 Hello? # speaker: Alice
 *Who are you? Are you the rabbit who led me down here? # speaker: Alice
-	She thinks all rabbits are the same! Shame, shame. # speaker: March Hare
+	She thinks all rabbits are the same! Shame, shame. # speaker: March Hare #voice:HareMain1
 *Where am I? # speaker: Alice 
     It’s not very polite not to introduce yourself.  # speaker: Mad Hatter
 	** It’s not very polite not to answer my question. # speaker: Alice
-		Not polite! Not polite, she says! # speaker: March Hare
+		Not polite! Not polite, she says! # speaker: March Hare #voice:HareMain2
     ** Who are you, then? # speaker: Alice
 - It’s not very polite of you not to remember us. # speaker: Mad Hatter
 Have we met? # speaker: Alice
@@ -17,14 +17,14 @@ You didn't! Why should I? # speaker: Mad Hatter
 * This is going in circles. Who are you? # speaker: Alice
 	Shouldn't you ask where it is you meet the people you are meeting? So rude without a greeting. I am the Hatter. # speaker: Mad Hatter
 	** Well, it’s nice to meet you, Mr. Hatter. I am Alice. # speaker: Alice
-	It’s not all that nice to meet you, Alice. You seem like a rather rude child. # speaker: March Hare
+	It’s not all that nice to meet you, Alice. You seem like a rather rude child. # speaker: March Hare #voice:HareMain3
 	That's not very kind! I've done nothing to you! # speaker: Alice
 	It’s not very polite of you to lie either! You’ve asked me many questions, as if you didn’t do this very thing! # speaker: Mad Hatter
 	-> Suspects
 	** The Mad Hatter then! How curious! # speaker: Alice
 	It’s rude to call someone names. How would you feel if I called you Mad Alice? # speaker: Mad Hatter
 	That's not very polite! # speaker: Alice
-    Mad Alice, too concerned with politeness to be polite! No room! No room for you to sit. # speaker: March Hare
+    Mad Alice, too concerned with politeness to be polite! No room! No room for you to sit. # speaker: March Hare #voice:HareMain4
     How do you know my name? # speaker: Alice
 	I should know the people who have done me wrong! Only a child lacking such manners would throw me out of wonderland! # speaker: Mad Hatter
 

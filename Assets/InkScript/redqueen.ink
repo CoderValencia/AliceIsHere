@@ -1,6 +1,6 @@
-Well I dont suppose your chittering will be so chipper when- oh dear, a little lost lamb! What brings you to this neck of the woods? I wood like to know. # speaker: Red Queen
+Well I dont suppose your chittering will be so chipper when- oh dear, a little lost lamb! What brings you to this neck of the woods? I wood like to know. # speaker: Red Queen 
 * Hello, Madame! My name is Alice.  # speaker: Alice
-    Oh dear, dear,  you mustn't adress a Queen in such a way. I sound like a governess, not a governor! # speaker: Red Queen
+    Oh dear, dear,  you mustn't adress a Queen in such a way. I sound like a governess, not a governor! # speaker: Red Queen #voice:RedQueenMain1
 * Are you the queen?  # speaker: Alice
     Of course I am a queen! I am the most powerful piece on the board! Of course, that silly white queen thinks she can pawn my pawns but tis I who will claim her fool of a king! ...You haven't confused me with the queen of hearts, have you, dear? I hope not, or you shan’t remain so dear to me. # speaker: Red Queen 
     ** Of course not! 
