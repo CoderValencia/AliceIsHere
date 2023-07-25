@@ -111,19 +111,9 @@ public class PlayerMovement : MonoBehaviour
 
     bool GroundCheck()
     {
-        if (facingLeft)
-        {
-            return Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - hitboxHeight + GetComponent<Collider2D>().offset.y), -Vector3.up, 0.02f, ground)
-            || Physics2D.Raycast(new Vector3(transform.position.x - hitboxWidth - GetComponent<Collider2D>().offset.x, transform.position.y - hitboxHeight + GetComponent<Collider2D>().offset.y), -Vector3.up, 0.02f, ground)
-            || Physics2D.Raycast(new Vector3(transform.position.x + hitboxWidth - GetComponent<Collider2D>().offset.x, transform.position.y - hitboxHeight + GetComponent<Collider2D>().offset.y), -Vector3.up, 0.02f, ground);
-        }
-        else
-        {
-            return Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - hitboxHeight + GetComponent<Collider2D>().offset.y), -Vector3.up, 0.02f, ground)
-            || Physics2D.Raycast(new Vector3(transform.position.x - hitboxWidth + GetComponent<Collider2D>().offset.x, transform.position.y - hitboxHeight + GetComponent<Collider2D>().offset.y), -Vector3.up, 0.02f, ground)
-            || Physics2D.Raycast(new Vector3(transform.position.x + hitboxWidth + GetComponent<Collider2D>().offset.x, transform.position.y - hitboxHeight + GetComponent<Collider2D>().offset.y), -Vector3.up, 0.02f, ground);
-        }
-        
+        return Physics2D.Raycast(new Vector3(transform.position.x, transform.position.y - hitboxHeight + GetComponent<Collider2D>().offset.y), -Vector3.up, 0.02f, ground)
+            || Physics2D.Raycast(new Vector3(transform.position.x - hitboxWidth + GetComponent<Collider2D>().offset.x * transform.localScale.x, transform.position.y - hitboxHeight + GetComponent<Collider2D>().offset.y), -Vector3.up, 0.02f, ground)
+            || Physics2D.Raycast(new Vector3(transform.position.x + hitboxWidth + GetComponent<Collider2D>().offset.x * transform.localScale.x, transform.position.y - hitboxHeight + GetComponent<Collider2D>().offset.y), -Vector3.up, 0.02f, ground);
         //Make sure every ground object has layer set to ground when making terrain
     }
 }
