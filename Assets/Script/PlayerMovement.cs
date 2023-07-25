@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float YVel;
     bool facingLeft;
     Animator a;
+    AudioSource au;
     //public bool canJump;
     
 
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
         hitboxWidth = GetComponent<BoxCollider2D>().bounds.extents.x;
         a = GetComponent<Animator>();
         //canJump = true;
+        au = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -62,6 +64,15 @@ public class PlayerMovement : MonoBehaviour
         }
         
         a.SetBool("IsGrounded", ground);
+        if (!au.isPlaying && Mathf.Abs(XVel)>0.1f)
+        {
+            au.Play();
+            au.loop = true;
+        }
+        if (!(Mathf.Abs(XVel) > 0.1f))
+        {
+            au.loop = false;
+        }
     }
 
     void FixedUpdate()
