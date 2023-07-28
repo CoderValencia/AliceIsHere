@@ -61,6 +61,11 @@ public class DialogueTrigger : MonoBehaviour
             ContinueStory();
             Debug.Log("Continue Story");
         }
+        if (dialogueIsPlaying)
+        {
+            dialoguePrompt.gameObject.SetActive(false);
+        }
+        
 
     }
     private void OnTriggerStay2D(Collider2D collision)
