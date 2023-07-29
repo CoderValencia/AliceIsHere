@@ -75,7 +75,7 @@ public class DialogueTrigger : MonoBehaviour
 
             playerInSpace = true;
             dialoguePrompt.gameObject.SetActive(true);
-          ;
+          
         }
     }
    
@@ -128,6 +128,10 @@ public class DialogueTrigger : MonoBehaviour
         dialogueIsPlaying = false;
         dialogueBox.SetActive(false);
         dialogueText.text = "";
+        if (SceneManager.GetActiveScene().name == "4 the queen of hearths") 
+        {
+            SceneManager.LoadScene("5 Ending");
+        }
     }
 
     void ContinueStory()
