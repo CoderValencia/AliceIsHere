@@ -171,6 +171,7 @@ public class DialogueTrigger : MonoBehaviour
                         if (audioClip.name.Trim() == tagValue.Trim())
                         {
                             audioSource.PlayOneShot(audioClip, 1);
+                            
                         }
                     }
                     break;

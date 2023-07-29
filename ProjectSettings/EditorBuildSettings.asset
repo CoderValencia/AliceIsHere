@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/4 the queen of hearths.unity
     guid: 249124977425491469e75138149e461a
+  - enabled: 1
+    path: Assets/Scenes/5 Ending.unity
+    guid: 5bf7386f47b06d741a8b332387c2bfd3
   m_configObjects: {}
